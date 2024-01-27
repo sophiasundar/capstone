@@ -1,0 +1,70 @@
+[
+    {
+      "id": 1,
+      "title": "iphone 14",
+      "price": 57999,
+      "discountPercentage": 12.96,
+      "salesPercentage": 20,
+      "rating": 4.69,
+      "stock": 94,
+      "brand": "Apple",
+      "images":
+        "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-pro-max-1.jpg",
+      "description": "An apple mobile which is nothing like apple"
+    },
+    {
+      "id": 2,
+      "title": "iphone 15 pro max",
+      "price": 157000,
+      "discountPercentage": 17.94,
+      "salesPercentage": 18,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "images":
+        "https://price-in-pakistan.com/wp-content/uploads/2023/04/1-c1-apple-iphone-15-pro-max-jiuo0txo-475x500.webp",
+      "description":
+        "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ..."
+    },
+    {
+      "id": 3,
+      "title": "Samsung Galaxy A15",
+      "price": 20000,
+      "discountPercentage": 15.46,
+      "salesPercentage": 40,
+      "rating": 4.09,
+      "stock": 36,
+      "brand": "Samsung",
+      "images":
+        "https://specifications-pro.com/wp-content/uploads/2023/04/Samsung-Galaxy-A15-5G-600x600.jpg",
+      "description":
+        "Samsung's new variant which goes beyond Galaxy to the Universe"
+    },
+    {
+      "id": 4,
+      "title": "OPPOF19",
+      "price": 16280,
+      "discountPercentage": 17.91,
+      "salesPercentage": 12,
+      "rating": 4.3,
+      "stock": 123,
+      "brand": "OPPO",
+      "images":
+        "https://images.hindustantimes.com/tech/img/2021/04/06/original/oppo_f19_1617705571670.jpg",
+      "description": "OPPO F19 is officially announced on April 2021."
+    },
+    {
+      "id": 5,
+      "title": "Huawei P30",
+      "price": 15499,
+      "discountPercentage": 10.58,
+      "salesPercentage": 10,
+      "rating": 4.09,
+      "stock": 32,
+      "brand": "Huawei",
+      "images":
+        "https://photobite.uk/wp-content/uploads/2019/03/1970-01-01-01.00.00-5.jpg",
+      "description":
+        "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK."
+    }
+  ]
