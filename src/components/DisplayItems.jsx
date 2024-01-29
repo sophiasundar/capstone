@@ -29,7 +29,7 @@ export function DisplayItems(){
         console.log(itemData)
 
       const handleDelete = (id) =>{
-        axios.delete(`${API}/phones/`+id)
+        axios.delete(`${API}/phones/`  + id)
         .then((res)=>{
             if (res.status === 200){
             console.log(" Data Not Found !")
