@@ -34,7 +34,7 @@
 
 .itemCard{
   width:300px;
-  height:620px;
+  height:600px;
   
 }
 
@@ -61,6 +61,18 @@
 }
 
 .button{
-  margin:10px 20px 1px 70px !important ;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin:10px 50px 1px 50px ;
   
+}
+
+.addItems{
+  text-align: center;
+}
+
+.item{
+  text-align: center;
 }

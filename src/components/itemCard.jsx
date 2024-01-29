@@ -2,16 +2,9 @@ import {useState} from 'react';
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { useNavigate} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-import { AiFillDelete } from "react-icons/ai";
-import { MdEdit } from "react-icons/md";
 
-
-
-
-
-
- 
 
 // "discountPercentage" "salesPercentage""rating"
     function ItemCard({value}){
@@ -22,10 +15,11 @@ import { MdEdit } from "react-icons/md";
          }
         console.log(toggleSummary.display);
        
-       
+        const navigate = useNavigate()
         return(
             <div  className="itemContainer">
                <Card className="itemCard" >
+               
                         <Card.Img className="itemImg" alt={value.title} variant="top" src={value.images} />
                         
                         <Card.Body>
@@ -61,15 +55,23 @@ import { MdEdit } from "react-icons/md";
                                             </div>
                                         :null}
                         </Card.Body>
-      
-                        <Card.Body className='button'>
-                           <Button variant="primary"><MdEdit />EDIT</Button>
-                           <Button variant="$gray-100"><AiFillDelete />DELETE</Button>
-                           <Button variant="$danger, 40%"></Button>
-                        </Card.Body>
-            
+                        <div className='button'>
+                            <Button variant="primary"
+                            onClick={()=>{
+                                navigate('/cards')
+                            }}
+                            >Edit/DeleteCards</Button>{' '}
+                        </div>
+                
+
                 </Card>
+
+
+
+                
             </div>
+
+            
         )
     }
 
