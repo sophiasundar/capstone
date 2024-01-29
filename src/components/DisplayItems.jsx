@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { useNavigate} from 'react-router-dom';
 import ItemCard from './itemCard';
+// import Items from "./Items"
 import { API } from './global';
 import { Button } from 'reactstrap';
 
@@ -49,8 +50,10 @@ const navigate = useNavigate();
           <br></br>
         {itemData.map((item)=>{
              return (
-             
+             <>
              <ItemCard key={item.id} value = {item} handleDelete={handleDelete}/>
+             
+             </>
           )
 
         })

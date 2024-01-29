@@ -2,12 +2,12 @@ import {useState} from 'react';
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useNavigate} from "react-router-dom";
+
 import Button from 'react-bootstrap/Button';
 
 
 // "discountPercentage" "salesPercentage""rating"
-    function ItemCard({value}){
+    function ItemCard({value,handleDelete}){
         
         const [show,setShow]=useState(false)  
          const toggleSummary={
@@ -15,7 +15,7 @@ import Button from 'react-bootstrap/Button';
          }
         console.log(toggleSummary.display);
        
-        const navigate = useNavigate()
+        
         return(
             <div  className="itemContainer">
                <Card className="itemCard" >
@@ -56,11 +56,13 @@ import Button from 'react-bootstrap/Button';
                                         :null}
                         </Card.Body>
                         <div className='button'>
-                            <Button variant="primary"
-                            onClick={()=>{
-                                navigate('/cards')
-                            }}
-                            >Edit/DeleteCards</Button>{' '}
+                            <Button
+                           onClick={()=>handleDelete(value.id)}
+                         >Edit</Button>
+
+                          <Button
+                           onClick={()=>handleDelete(value.id)}
+                         >Delete</Button>
                         </div>
                 
 

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { API } from './global';
 
-function AddItems(){
+
+function AddItems({itemData, setItemData}){
    const [title,setTitle] = useState("")
    const [price,setPrice] = useState("")
    const [discountPercentage,setDiscountPercentage] = useState("")
@@ -12,16 +15,33 @@ function AddItems(){
    const [images,setImages] = useState("")
     const [description,setDescription] = useState("")
 
+    const navigate = useNavigate()
 
     const handleSubmit = () =>{
         const newPhone= {
             title: title,
-            
+            price:price,
+            discountPercentage:discountPercentage,
+            salesPercentage:salesPercentage,
+            rating:rating,
+            stock:stock,
+            brand:brand,
+            images:images,
+            description:description,
         }
+        console.log(newPhone)
+
        fetch(`${API}/phones`,{
           method: "POST",
-          body:JSON.stringify()
+          body:JSON.stringify(newPhone),
+          headers:{ "Content-Type": "application/json" },
        })
+       .then((data)=> data.json())
+       .then((res)=>{
+        setItemData(res);
+        // console.log(res)
+       })
+       .then(()=> navigate("/"))
     };
 
 
@@ -148,13 +168,22 @@ function AddItems(){
         value={description}
     />
   </FormGroup>
-  
+    <div className='button'>
   <Button
+  
     onClick = {handleSubmit}
   >
     Submit
   </Button>
-
+    
+  <Button
+    onClick={()=>{
+      navigate('/')
+  }}
+  >
+    Back
+  </Button>
+  </div>
 </Form>
         </div>
     )
