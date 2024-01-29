@@ -22,9 +22,9 @@ export function DisplayItems(){
         console.log(itemData)
     return (
       <div>
-        <h1>DisplayItems</h1>
+        <h1 className='header' >DisplayItems</h1>
         {itemData.map((item)=>{
-             return <ItemCard key={item.id}/>
+             return <ItemCard key={item.id} value = {item}/>
         })
         }
       </div>

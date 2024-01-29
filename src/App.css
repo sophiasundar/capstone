@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap:2%;
+  flex-wrap: wrap;
+  border:0px solid;
+  width:90%;
+  margin-right:5%;
+  margin-left:10%;
+  margin-top:2%;
+  /* margin :auto */
+}
+.itemSpecs{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+} 
+*{
+  padding: 0;
+  margin:0;
+}
+.itemDesp{
+  overflow: hidden;
+  height: 68px;
+}
+.itemContainer{
+  display:  inline-flex;
+  margin: 1% 2% 1% 2%;
+   
 }
 
-.App-link {
-  color: #61dafb;
+.itemCard{
+  width:300px;
+  height:620px;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.itemImg{
+  width:280px;
+  height:290px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.list-group-flush{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.title{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header{
+  text-align: center;
+
+}
+
+.button{
+  margin:10px 20px 1px 70px !important ;
+  
 }
