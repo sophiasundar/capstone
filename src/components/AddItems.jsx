@@ -178,7 +178,7 @@ function AddItems({itemData, setItemData}){
     
   <Button
     onClick={()=>{
-      navigate('/')
+      navigate(-1)
   }}
   >
     Back

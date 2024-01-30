@@ -1,10 +1,11 @@
 import {useState} from 'react';
-import React from 'react'
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+
 
 
 
@@ -49,7 +50,7 @@ import { MdDelete } from "react-icons/md";
                                     setShow(!show)
                                     console.log(show)
                                 }}
-                                > click {  show?"🔽":"🔼"}
+                                > Click TO Know More {  show?"🔽":"🔼"}
                                 </button> 
                             </div>
                                 { show? <div className='itemDesp'> <ListGroup className="list-group-flush" >
@@ -75,7 +76,7 @@ import { MdDelete } from "react-icons/md";
                 </Card>
 
 
-
+                
                 
             </div>
 

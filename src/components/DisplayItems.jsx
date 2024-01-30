@@ -44,6 +44,10 @@ const navigate = useNavigate();
           > add phone
 
           </Button>
+          <Button onClick={()=> navigate("/phones/charts")}
+          > Charts
+
+          </Button>
           </div>
           <br></br>
         {itemData.map((item)=>{
