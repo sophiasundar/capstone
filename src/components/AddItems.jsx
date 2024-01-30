@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button, Col } from "reactstrap";
 import { API } from './global';
 
 
@@ -10,7 +10,6 @@ function AddItems({itemData, setItemData}){
    const [discountPercentage,setDiscountPercentage] = useState("")
    const [salesPercentage,setSalesPercentage] = useState("")
    const  [rating,setRating] = useState("")
-   const [stock,setStock]  = useState("")
    const [brand,setBrand]  = useState("")
    const [images,setImages] = useState("")
     const [description,setDescription] = useState("")
@@ -24,7 +23,6 @@ function AddItems({itemData, setItemData}){
             discountPercentage:discountPercentage,
             salesPercentage:salesPercentage,
             rating:rating,
-            stock:stock,
             brand:brand,
             images:images,
             description:description,
@@ -51,9 +49,10 @@ function AddItems({itemData, setItemData}){
 
           <Form>
   <FormGroup>
-   <Label for="title">
+   <Label for="title" sm={2}>
       Title
     </Label>
+    <Col sm={10}> 
     <Input
       id="title"
       name="title"
@@ -62,7 +61,7 @@ function AddItems({itemData, setItemData}){
         //    onChange={(e)=>e.target.value}
         onChange={(e)=> setTitle(e.target.value)}
         value={title}
-    />
+    /></Col>
   </FormGroup>
   <FormGroup>
     <Label for="price">
@@ -84,7 +83,7 @@ function AddItems({itemData, setItemData}){
     <Input
       id="discountPercentage"
       name="discountPercentage"
-      placeholder="Enter the link of the Discount Percentage"
+      placeholder="Enter the Discount Percentage"
       type="text"
       onChange={(e)=> setDiscountPercentage(e.target.value)}
         value={discountPercentage}
@@ -97,7 +96,7 @@ function AddItems({itemData, setItemData}){
     <Input
       id="salesPercentage"
       name="salesPercentage"
-      placeholder="Enter the link of the salesPercentage"
+      placeholder="Enter the salesPercentage"
       type="text"
       onChange={(e)=> setSalesPercentage(e.target.value)}
         value={salesPercentage}
@@ -110,23 +109,10 @@ function AddItems({itemData, setItemData}){
     <Input
       id="rating"
       name="rating"
-      placeholder="Enter the link of the rating"
+      placeholder="Enter the rating"
       type="text"
       onChange={(e)=> setRating(e.target.value)}
         value={rating}
-    />
-  </FormGroup>
-  <FormGroup>
-    <Label for="stock">
-    Stock
-    </Label>
-    <Input
-      id="stock"
-      name="stock"
-      placeholder="Enter the link of the Stock"
-      type="text"
-      onChange={(e)=> setStock(e.target.value)}
-        value={stock}
     />
   </FormGroup>
   <FormGroup>
@@ -136,7 +122,7 @@ function AddItems({itemData, setItemData}){
     <Input
       id="brand"
       name="brand"
-      placeholder="Enter the link of the brand"
+      placeholder="Enter the brand"
       type="text"
       onChange={(e)=> setBrand(e.target.value)}
         value={brand}
@@ -149,7 +135,7 @@ function AddItems({itemData, setItemData}){
     <Input
       id="images"
       name="images"
-      placeholder="Enter the link of the image"
+      placeholder="Enter The Image Link in jpg format"
       type="text"
       onChange={(e)=> setImages(e.target.value)}
         value={images}
@@ -162,18 +148,22 @@ function AddItems({itemData, setItemData}){
     <Input
       id="description"
       name="description"
-      placeholder="Enter the link of the description"
-      type="text"
+      placeholder="Enter the description"
+      type="textarea"
       onChange={(e)=> setDescription(e.target.value)}
         value={description}
     />
+
+
+
+
   </FormGroup>
     <div className='button'>
   <Button
   
     onClick = {handleSubmit}
   >
-    Submit
+    AddPhone
   </Button>
     
   <Button

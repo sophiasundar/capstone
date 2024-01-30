@@ -59,7 +59,7 @@ import { MdDelete } from "react-icons/md";
                                             <ListGroup.Item><b>Rating  ⭐ :  </b>{value.rating} </ListGroup.Item>
                                             <ListGroup.Item><b>Discount Percentage : </b>{value.discountPercentage} </ListGroup.Item>
                                             <ListGroup.Item><b>Sales Percentage : </b> {value.salesPercentage} </ListGroup.Item>
-                                            <ListGroup.Item><b>Stock  : </b>{value.stock} </ListGroup.Item>         
+                                            
                                             </ListGroup> 
                                             </div>
                                         :null}
