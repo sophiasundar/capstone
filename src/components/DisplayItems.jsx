@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { useNavigate} from 'react-router-dom';
 import ItemCard from './itemCard';
-// import Items from "./Items"
 import { API } from './global';
 import { Button } from 'reactstrap';
 
@@ -26,13 +25,12 @@ export function DisplayItems(){
     useEffect(()=>{
       getItems();
  }, []);
-        console.log(itemData)
+        
 
       const handleDelete = (id) =>{
-        axios.delete(`${API}/phones/`  + id)
-        .then((res)=>{
+        axios.delete(`${API}/phones/`  +id).then((res)=>{
             if (res.status === 200){
-            console.log(" Data Not Found !")
+              getItems();
             }
         });
       }

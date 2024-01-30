@@ -2,17 +2,23 @@ import {useState} from 'react';
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-
 import Button from 'react-bootstrap/Button';
+import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+
+
 
 
 // "discountPercentage" "salesPercentage""rating"
+
     function ItemCard({value,handleDelete}){
-        
-        const [show,setShow]=useState(false)  
+         
+        const [show,setShow]=useState(false)
+
          const toggleSummary={
             display:show?"block":"none"
          }
+
         console.log(toggleSummary.display);
        
         
@@ -56,13 +62,13 @@ import Button from 'react-bootstrap/Button';
                                         :null}
                         </Card.Body>
                         <div className='button'>
-                            <Button
-                           onClick={()=>handleDelete(value.id)}
-                         >Edit</Button>
+                            <Button><MdEdit 
+                            
+                            /></Button>
 
-                          <Button
-                           onClick={()=>handleDelete(value.id)}
-                         >Delete</Button>
+                          <Button><MdDelete 
+                         onClick={()=>handleDelete(value.id)}
+                         /> </Button>
                         </div>
                 
 
