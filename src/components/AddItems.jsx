@@ -47,7 +47,7 @@ function AddItems({itemData, setItemData}){
 
     return(
         <div>
-          <h6>AddPhones</h6> 
+          <h5>AddPhones</h5> 
 
           <Form>
   <FormGroup>

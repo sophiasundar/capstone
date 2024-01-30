@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -22,6 +23,7 @@ import { MdDelete } from "react-icons/md";
 
         console.log(toggleSummary.display);
        
+        const navigate  = useNavigate();
         
         return(
             <div  className="itemContainer">
@@ -64,7 +66,10 @@ import { MdDelete } from "react-icons/md";
                         </Card.Body>
                         <div className='button'>
                             <Button><MdEdit 
-                            
+                              onClick={()=>{
+                                   navigate(`/phones/edit/${value.id}`)
+                                }
+                            }
                             /></Button>
 
                           <Button><MdDelete 
