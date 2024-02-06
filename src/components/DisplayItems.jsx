@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import { useNavigate} from 'react-router-dom';
 import ItemCard from './itemCard';
 import { API } from './global';
-import { Button } from 'reactstrap';
+
+import NavBar from './navBar';
 
 
 export function DisplayItems(){
@@ -34,18 +34,12 @@ export function DisplayItems(){
             }
         });
       }
-const navigate = useNavigate();
+
 
     return (
       <div>
-        <div className='header'>
-        <h4 className='header' >DisplayItems</h4>
-          <Button onClick={()=> navigate("/phones/add")}
-          > add phone
-
-          </Button>
-          
-          </div>
+      <NavBar/>
+        
           <br></br>
         {itemData.map((item)=>{
              return (

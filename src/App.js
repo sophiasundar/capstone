@@ -1,10 +1,10 @@
 import './App.css';
 import { BrowserRouter,Routes, Route, Navigate} from "react-router-dom";
+// import { Switch } from 'react-router';
 import { DisplayItems } from "./components/DisplayItems";
 import AddItems from './components/AddItems';
 import { EditItems } from './components/editItem';
 import { useState } from 'react';
-
 import NotFound from './components/notFound';
 
 
@@ -14,21 +14,27 @@ function App() {
 
 
   return (
+    
+    
     <div className="App">
       
       <BrowserRouter>
       
         <Routes>
-        
-          <Route path="/" element={ <DisplayItems/> }></Route>
-          <Route path="/phones/add" element={ <AddItems itemData={itemData} setItemData={setItemData} /> }></Route>
-          <Route path="/phones/edit/:id" element={<EditItems itemData={itemData} setItemData={setItemData}/>}></Route>       
-          <Route path='*' element = {<Navigate replace to='/404'/>}/>
-          <Route path="/404" element={<NotFound/>}/>
+          
+             
+    
+            <Route path="/" element={ <DisplayItems/> }></Route>
+            <Route path="/phones/add" element={ <AddItems itemData={itemData} setItemData={setItemData} /> }></Route>
+            <Route path="/phones/edit/:id" element={<EditItems itemData={itemData} setItemData={setItemData}/>}></Route>       
+            <Route path='*' element = {<Navigate replace to='/404'/>}/>
+            <Route path="/404" element={<NotFound/>}/>
+          
           
         </Routes>
       </BrowserRouter>
     </div>
+    
   );
 }
 

@@ -47,12 +47,12 @@ function AddItems({itemData, setItemData}){
         <div>
           <h5>AddPhones</h5> 
 
-          <Form>
+          <Form >
   <FormGroup>
-   <Label for="title" sm={2}>
+   <Label for="title" >
       Title
     </Label>
-    <Col sm={10}> 
+    <Col > 
     <Input
       id="title"
       name="title"
