@@ -4,7 +4,7 @@ import { Form, FormGroup, Label, Input, Button, Col } from "reactstrap";
 import { API } from './global';
 
 
-function AddItems({itemData, setItemData}){
+function AddItems({setItemData}){
    const [title,setTitle] = useState("")
    const [price,setPrice] = useState("")
    const [discountPercentage,setDiscountPercentage] = useState("")
