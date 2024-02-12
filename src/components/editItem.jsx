@@ -16,7 +16,7 @@ export function EditItems(){
 
          useEffect(()=>{
             
-               axios.get(`${API}phones/${id}`)
+               axios.get(`${API}/phones/${id}`)
                .then((res)=>{
                    console.log(res.data);
                    setPhone(res.data);
@@ -61,7 +61,7 @@ export function EditItems(){
       }
       console.log(updatePhone)
 
-     fetch(`${API}phones/${phone.id}`,{
+     fetch(`${API}/phones/${phone.id}`,{
         method: "PUT",
         body: JSON.stringify(updatePhone),
         headers:{ "Content-Type": "application/json" },
