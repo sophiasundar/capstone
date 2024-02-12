@@ -67,7 +67,7 @@ import { MdDelete } from "react-icons/md";
                         <div className='button'>
                             <Button><MdEdit 
                               onClick={()=>{
-                                   navigate(`/phones/edit/${value.id}`)
+                                   navigate(`/phones/edit/${value._id}`)
                                 }
                             }
                             /></Button>

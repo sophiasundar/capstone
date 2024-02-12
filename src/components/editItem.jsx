@@ -61,7 +61,7 @@ export function EditItems(){
       }
       console.log(updatePhone)
 
-     fetch(`${API}/phones/${phone.id}`,{
+     fetch(`${API}/phones/${phone._id}`,{
         method: "PUT",
         body: JSON.stringify(updatePhone),
         headers:{ "Content-Type": "application/json" },
@@ -149,7 +149,7 @@ export function EditItems(){
         <div className='button'>
   <Button
      color="success"
-    onClick = {handleSubmit}
+    onClick = {handleSubmit }
   >
     Update
   </Button>
