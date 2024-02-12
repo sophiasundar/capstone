@@ -28,7 +28,9 @@ export function DisplayItems(){
         
 
       const handleDelete = (id) =>{
-        axios.delete(`${API}/phones/`  +id).then((res)=>{
+        console.log(id)
+        axios.delete(`${API}/phones/${id}`).then((res)=>{
+         
             if (res.status === 200){
               getItems();
             }
@@ -44,7 +46,7 @@ export function DisplayItems(){
         {itemData.map((item)=>{
              return (
              <>
-             <ItemCard key={item.id} value = {item} handleDelete={handleDelete}/>
+             <ItemCard key={item._id} value = {item} handleDelete={()=> handleDelete(item._id) }/>
              
              </>
           )
