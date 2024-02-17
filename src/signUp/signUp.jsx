@@ -1,33 +1,37 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import {API} from "../global.js";
+import {API} from "../components/global.js";
+import "./signUp.css"
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Figure from 'react-bootstrap/Figure';
 
 
-function Signup(){
+
+
+const Signup=()=>{
      const [data, setData] = useState({
         email:"",
         password:"",
-        roleId:"0"
+        id:"0"
      })
 
      const [state, setState] = useState("Signup")
 
      const navigate = useNavigate()
 
-     const handleChange = ({ currentTarget: <input type="text" /> })
+     const handleChange = ({currentTarget: input})=>{
+        setData({...data})
+     }
 return(
-    <>
-        <Container>
+    
+        <div className="container">
+            <div className="form">
+              <div className="login">
         <Col>
-        
-        <Container >
-        <Col xs={2}>
+         <Col xs={2}>
         <Figure>
       <Figure.Image
         width={291}
@@ -39,13 +43,13 @@ return(
     </Figure>
 
         </Col>
-        </Container>
+
     
          <Form>
          <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter Your Email" />
+        <Form.Control type="email" placeholder="Enter Your Email Address" />
       </Form.Group>
           </Row>
     
@@ -64,12 +68,37 @@ return(
          }
      }
     >for demo display</Button>{' '}
-    <Button variant="primary">sign up</Button>{' '}
+    <Button variant="primary">LOG IN</Button>{' '}
+    <h6>Already have an account? Just LogIn </h6>
+    
+    
+    
     </Row>
     </Col>
-    </Container>
+    </div>
 
-    </>
+    <div  className="signup">
+   
+    <Figure>
+      <Figure.Image
+        width={251}
+        height={251}
+        alt="welcome"
+        src="https://tse1.mm.bing.net/th?id=OIP.MgkugHlSpXm930w6zLbomgHaDt&pid=Api&P=0&h=180"
+      />
+      
+    </Figure>
+      
+        <Button className='button' variant="primary">SIGN UP</Button>
+        <h6>Not have an account ? Just Signup </h6>
+    
+
+    </div>
+
+    
+    </div>
+    </div>
+   
 
 )
 

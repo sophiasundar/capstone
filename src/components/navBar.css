@@ -1,0 +1,35 @@
+.me-auto{
+    display:flex;
+    flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin:1px 2px 1px 2px ;
+}
+
+.bg-body-tertiary{
+    display:flex;
+    flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin:1px 10px 5px 1px ;
+   
+}
+
+.buttons{
+    margin-right: 50px;
+    display:flex;
+    flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 26%
+  
+}
+
+.dp{
+    margin-right: 700px;
+    display:flex;
+    flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 26%
+}

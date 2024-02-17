@@ -2,8 +2,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
+import "./navBar.css"
 
-// import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar(){
 return(
@@ -14,22 +14,20 @@ return(
            
       <Container  expand="xxl">
         
-          
-      <Navbar.Brand href="/"><b>DISPLAY PHONES</b>         </Navbar.Brand>
-      <Button variant="primary"><Nav.Link href=''></Nav.Link></Button>{' '}
-         <Button variant="primary"><Nav.Link href="/phones/add">ADD PHONE</Nav.Link></Button>{' '}
-          
-          
-          <Button variant="primary"><Nav.Link href=''>LOG OUT</Nav.Link></Button>{' '}
-          <Button variant="primary"><Nav.Link href=''>LOG OUT</Nav.Link></Button>{' '}
-             
-          <Nav className="me-auto">
+      <Nav className="me-auto">
+        <div className="dp">
+      <Navbar.Brand href="/" ><b>DISPLAY PHONES</b>         </Navbar.Brand>
+      </div>
+      <div className='buttons'>  
+      
+          <Button variant="primary"><Nav.Link href="/phones/add">Addphone</Nav.Link></Button>{' '}
           
           
-
-            
-            
-          </Nav>
+          <Button variant="primary"><Nav.Link href=''>Logout</Nav.Link></Button>{' '}
+          {/* <Button variant="primary"><Nav.Link href=''>Logout</Nav.Link></Button>{' '} */}
+          </div>
+          </Nav>  
+          
           </Container>
       
     </Navbar> 
