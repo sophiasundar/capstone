@@ -23,8 +23,8 @@ return(
           <Button variant="primary"><Nav.Link href="/phones/add">Addphone</Nav.Link></Button>{' '}
           
           
-          <Button variant="primary"><Nav.Link href=''>Logout</Nav.Link></Button>{' '}
-          {/* <Button variant="primary"><Nav.Link href=''>Logout</Nav.Link></Button>{' '} */}
+          <Button variant="primary"><Nav.Link href='/'>Logout</Nav.Link></Button>{' '}
+          
           </div>
           </Nav>  
           
