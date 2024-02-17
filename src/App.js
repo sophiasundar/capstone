@@ -1,12 +1,11 @@
 import './App.css';
 import { BrowserRouter,Routes, Route, Navigate} from "react-router-dom";
-// import { Switch } from 'react-router';
 import { DisplayItems } from "./components/DisplayItems";
 import AddItems from './components/AddItems';
 import { EditItems } from './components/editItem';
 import { useState } from 'react';
 import NotFound from './components/notFound';
-
+import Signup from './signUp/signUp';
 
 function App() {
   const [itemData,setItemData] = useState([])
@@ -23,8 +22,8 @@ function App() {
         <Routes>
           
              
-    
-            <Route path="/" element={ <DisplayItems/> }></Route>
+            <Route path="/" element={ <Signup/> }></Route>
+            <Route path="/display" element={ <DisplayItems/> }></Route>
             <Route path="/phones/add" element={ <AddItems itemData={itemData} setItemData={setItemData} /> }></Route>
             <Route path="/phones/edit/:id" element={<EditItems itemData={itemData} setItemData={setItemData}/>}></Route>       
             <Route path='*' element = {<Navigate replace to='/404'/>}/>
