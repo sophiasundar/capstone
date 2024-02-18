@@ -5,7 +5,8 @@ import AddItems from './components/AddItems';
 import { EditItems } from './components/editItem';
 import { useState } from 'react';
 import NotFound from './components/notFound';
-import Signup from './signUp/signUp';
+import Signup from './components/signUp/signUp.jsx';
+import SignupForm from './components/signUp/signupForm.jsx';
 
 function App() {
   const [itemData,setItemData] = useState([])
@@ -21,8 +22,9 @@ function App() {
       
         <Routes>
           
-             
+             <SignupForm/>
             <Route path="/" element={ <Signup/> }></Route>
+            <Route path="/signup" element={ <SignupForm/> }></Route>
             <Route path="/display" element={ <DisplayItems/> }></Route>
             <Route path="/phones/add" element={ <AddItems itemData={itemData} setItemData={setItemData} /> }></Route>
             <Route path="/phones/edit/:id" element={<EditItems itemData={itemData} setItemData={setItemData}/>}></Route>       

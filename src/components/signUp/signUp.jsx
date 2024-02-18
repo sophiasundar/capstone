@@ -1,6 +1,6 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {API} from "../components/global.js";
+// import {API} from "../global.js";
 import "./signUp.css"
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -12,19 +12,19 @@ import Figure from 'react-bootstrap/Figure';
 
 
 const Signup=()=>{
-     const [data, setData] = useState({
-        email:"",
-        password:"",
-        id:"0"
-     })
+    //  const [data, setData] = useState({
+    //     email:"",
+    //     password:"",
+    //     id:"0"
+    //  })
 
-     const [state, setState] = useState("Signup")
+    //  const [state, setState] = useState("Signup")
 
      const navigate = useNavigate()
 
-     const handleChange = ({currentTarget: input})=>{
-        setData({...data})
-     }
+    //  const handleChange = ({currentTarget: input})=>{
+    //     setData({...data})
+    //  }
 return(
     
         <div className="container">
@@ -89,7 +89,12 @@ return(
       
     </Figure>
       
-        <Button className='button' variant="primary">SIGN UP</Button>
+        <Button className='button' variant="primary"
+             onClick={()=>{
+              navigate(`/signup`)
+           }
+       }
+        >SIGN UP</Button>
         <h6>Not have an account ? Just Signup </h6>
     
 

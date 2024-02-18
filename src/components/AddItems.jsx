@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, FormGroup, Label, Input, Button, Col } from "reactstrap";
+// import { Form, FormGroup, Label, Input, Button, Col } from "reactstrap";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { API } from './global';
 
 
@@ -39,7 +41,7 @@ function AddItems({setItemData}){
         setItemData(res);
         // console.log(res)
        })
-       .then(()=> navigate("/"))
+       .then(()=> navigate("/display"))
     };
 
 
@@ -48,116 +50,91 @@ function AddItems({setItemData}){
           <h5>AddPhones</h5> 
 
           <Form >
-  <FormGroup>
-   <Label for="title" >
-      Title
-    </Label>
-    <Col > 
-    <Input
-      id="title"
-      name="title"
-      placeholder="Enter the Phone Name"
-      type="text"
-        //    onChange={(e)=>e.target.value}
-        onChange={(e)=> setTitle(e.target.value)}
-        value={title}
-    /></Col>
-  </FormGroup>
-  <FormGroup>
-    <Label for="price">
-      Price
-    </Label>
-    <Input
-      id="price"
-      name="price"
-      placeholder="Enter the price"
-      type="text"
-      onChange={(e)=> setPrice(e.target.value)}
-        value={price}
-    />
-  </FormGroup>
-  <FormGroup>
-    <Label for="discountPercentage">
-    Discount Percentage
-    </Label>
-    <Input
-      id="discountPercentage"
-      name="discountPercentage"
-      placeholder="Enter the Discount Percentage"
-      type="text"
-      onChange={(e)=> setDiscountPercentage(e.target.value)}
-        value={discountPercentage}
-    />
-  </FormGroup>
-  <FormGroup>
-    <Label for="salesPercentage">
-    Sales Percentage
-    </Label>
-    <Input
-      id="salesPercentage"
-      name="salesPercentage"
-      placeholder="Enter the salesPercentage"
-      type="text"
-      onChange={(e)=> setSalesPercentage(e.target.value)}
-        value={salesPercentage}
-    />
-  </FormGroup>
-  <FormGroup>
-    <Label for="rating">
-    Rating
-    </Label>
-    <Input
-      id="rating"
-      name="rating"
-      placeholder="Enter the rating"
-      type="text"
-      onChange={(e)=> setRating(e.target.value)}
-        value={rating}
-    />
-  </FormGroup>
-  <FormGroup>
-    <Label for="brand">
-    Brand
-    </Label>
-    <Input
-      id="brand"
-      name="brand"
-      placeholder="Enter the brand"
-      type="text"
-      onChange={(e)=> setBrand(e.target.value)}
-        value={brand}
-    />
-  </FormGroup>
-  <FormGroup>
-    <Label for="images">
-      Image
-    </Label>
-    <Input
-      id="images"
-      name="images"
-      placeholder="Enter The Image Link in jpg format"
-      type="text"
-      onChange={(e)=> setImages(e.target.value)}
-        value={images}
-    />
-  </FormGroup>
-  <FormGroup>
-    <Label for="description">
-    Description
-    </Label>
-    <Input
-      id="description"
-      name="description"
-      placeholder="Enter the description"
-      type="textarea"
-      onChange={(e)=> setDescription(e.target.value)}
-        value={description}
-    />
 
+          <Form.Group  md="4" controlId="validationCustom01">
+          <Form.Label>First name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="First name"
+            defaultValue=" "
+          />
+          
+        </Form.Group>
 
+          <Form.Group className="mb-3" controlId="validationCustom01">
+           <Form.Label>Title</Form.Label>
+           <Form.Control required id="title"
+            name="title" type="text" placeholder="Enter the Phone Name" 
+            onChange={(e)=> setTitle(e.target.value)}
+            value={title}
+           />
+          </Form.Group>
 
+          <Form.Group className="mb-3" controlId="validationCustom01">
+           <Form.Label>Price</Form.Label>
+           <Form.Control required id="price"
+            name="price" type="text" placeholder="Enter the Price" 
+            onChange={(e)=> setPrice(e.target.value)}
+            value={price}
+           />
+          </Form.Group>
 
-  </FormGroup>
+          <Form.Group className="mb-3" controlId="validationCustom01">
+           <Form.Label>Discount Percentage</Form.Label>
+           <Form.Control required id="discountPercentage"
+            name="discountPercentage" type="text" placeholder="Enter the Discount Percentage" 
+            onChange={(e)=> setDiscountPercentage(e.target.value)}
+            value={discountPercentage}
+           />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="validationCustom01">
+           <Form.Label>Sales Percentage</Form.Label>
+           <Form.Control required id="salesPercentage"
+            name="salesPercentage" type="text" placeholder="Enter the Sales Percentage" 
+            onChange={(e)=> setSalesPercentage(e.target.value)}
+            value={salesPercentage}
+           />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+           <Form.Label>Rating</Form.Label>
+           <Form.Control required id="rating"
+            name="rating" type="text" placeholder="Enter the Rating" 
+            onChange={(e)=> setRating(e.target.value)}
+            value={rating}
+           />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+           <Form.Label>Brand</Form.Label>
+           <Form.Control required id="brand"
+            name="brand" type="text" placeholder="Enter the brand" 
+            onChange={(e)=> setBrand(e.target.value)}
+            value={brand}
+           />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+           <Form.Label>Image</Form.Label>
+           <Form.Control required id="image"
+            name="image" type="text" placeholder="Enter The Image Link in jpg format" 
+            onChange={(e)=> setImages(e.target.value)}
+            value={images}
+           />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+           <Form.Label>Description</Form.Label>
+           <Form.Control required id="description"
+            name="description" type="text" placeholder="Enter The Description" 
+            onChange={(e)=> setDescription(e.target.value)}
+            value={description}
+           />
+          </Form.Group>
+
+ 
     <div className='button'>
   <Button
   
