@@ -50,12 +50,12 @@ function AddItems({setItemData}){
           <h5>AddPhones</h5> 
 
           <Form >
-
+             <p></p>
           
 
           <Form.Group className="mb-3" controlId="validationCustom01">
            <Form.Label>Title</Form.Label>
-           <Form.Control required id="title"
+           <Form.Control required={true} id="title"
             name="title" type="text" placeholder="Enter the Phone Name" 
             onChange={(e)=> setTitle(e.target.value)}
             value={title}
@@ -64,7 +64,7 @@ function AddItems({setItemData}){
 
           <Form.Group className="mb-3" controlId="validationCustom01">
            <Form.Label>Price</Form.Label>
-           <Form.Control required id="price"
+           <Form.Control required={2} id="price"
             name="price" type="text" placeholder="Enter the Price" 
             onChange={(e)=> setPrice(e.target.value)}
             value={price}

@@ -7,15 +7,17 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Figure from 'react-bootstrap/Figure';
-
+// import axios from "axios";
 
 
 
 const Signup=()=>{
-    //  const [data, setData] = useState({
-    //     email:"",
-    //     password:""
-    //  })
+    // const  axiosResponse = axios.post(`${API}/users/signup`,payload,{
+    //    headers:{
+    //     'content-Type': 'application/json',
+    //     'Authorization': `Bearer ${accessToken}`
+    //    }
+    // })
 
    
 
@@ -59,13 +61,18 @@ return(
 
     </Form>
      <Row >
-    <Button variant="primary"
+    {/* <Button variant="primary"
           onClick={()=>{
             navigate(`/display`)
          }
      }
-    >for demo display</Button>{' '}
-    <Button variant="primary">LOG IN</Button>{' '}
+    >for demo display</Button>{' '} */}
+    <Button variant="primary"
+        onClick={()=>{
+          navigate(`/display`)
+       }
+   }
+    >LOG IN</Button>{' '}
     <h6>Already have an account? Just LogIn </h6>
     
     
