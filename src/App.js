@@ -22,7 +22,7 @@ function App() {
       
         <Routes>
           
-             <SignupForm/>
+             
             <Route path="/" element={ <Signup/> }></Route>
             <Route path="/signup" element={ <SignupForm/> }></Route>
             <Route path="/display" element={ <DisplayItems/> }></Route>

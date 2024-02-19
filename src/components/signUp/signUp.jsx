@@ -14,17 +14,14 @@ import Figure from 'react-bootstrap/Figure';
 const Signup=()=>{
     //  const [data, setData] = useState({
     //     email:"",
-    //     password:"",
-    //     id:"0"
+    //     password:""
     //  })
 
-    //  const [state, setState] = useState("Signup")
+   
 
      const navigate = useNavigate()
 
-    //  const handleChange = ({currentTarget: input})=>{
-    //     setData({...data})
-    //  }
+   
 return(
     
         <div className="container">

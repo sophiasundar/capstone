@@ -51,16 +51,7 @@ function AddItems({setItemData}){
 
           <Form >
 
-          <Form.Group  md="4" controlId="validationCustom01">
-          <Form.Label>First name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="First name"
-            defaultValue=" "
-          />
           
-        </Form.Group>
 
           <Form.Group className="mb-3" controlId="validationCustom01">
            <Form.Label>Title</Form.Label>

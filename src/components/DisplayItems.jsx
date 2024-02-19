@@ -25,6 +25,8 @@ export function DisplayItems(){
     useEffect(()=>{
       getItems();
  }, []);
+
+localStorage.setItem("ItemData", JSON.stringify(itemData));
         
 
       const handleDelete = (id) =>{
