@@ -12,12 +12,7 @@ import Figure from 'react-bootstrap/Figure';
 
 
 const Signup=()=>{
-    // const  axiosResponse = axios.post(`${API}/users/signup`,payload,{
-    //    headers:{
-    //     'content-Type': 'application/json',
-    //     'Authorization': `Bearer ${accessToken}`
-    //    }
-    // })
+    
 
    
 
@@ -55,18 +50,13 @@ return(
           <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="text" placeholder="Enter Your Password" />
+        <Form.Control type="password" placeholder="Enter Your Password" />
       </Form.Group>
       </Row>
 
     </Form>
      <Row >
-    {/* <Button variant="primary"
-          onClick={()=>{
-            navigate(`/display`)
-         }
-     }
-    >for demo display</Button>{' '} */}
+    
     <Button variant="primary"
         onClick={()=>{
           navigate(`/display`)

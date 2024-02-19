@@ -5,13 +5,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { toast } from "react-toastify";
+
 
 
 const SignupForm=()=>{
      const [email, setEmail] = useState("")
      const [password, setPassword] = useState("")
-    //  const [register, setRegister] = useState("")
+    
 
      const [state, setState] = useState("Signup")
 
@@ -22,6 +22,7 @@ const SignupForm=()=>{
      const handleSubmit =  (e) =>{
         setState("Loading....")
         e.preventDefault();
+        alert("Submited");
         const data ={
           email,
           password,
@@ -33,32 +34,17 @@ const SignupForm=()=>{
 			       "Content-Type": "application/json",
 			    }
           
-		  }).then(async(res)=>{
-            console.log(res)
-            let data = await res.json()
+		  }).then(async(response)=>{
+            console.log(response)
+            let data = await response.json()
             console.log(data)
-            if(res.status === 401){
-                throw new Error(res.statusText);
-            }else{
-                setState("Success");
-                 return res.json();
+           }).then((data)=>{
+         if(data === "already exist"){
+                alert("already exist")
             }
-        }).then((data)=>{
-         
-            if(data.message === "already exist"){
-                 toast('already exist')
-            }else if(data.message === 'password must be at least 8 characters'){
-				toast('password must be 8 characters exist')
-			}else{
-				toast("Check your email and click the link to verify your E-Mail address")
-				localStorage.setItem("x-Auth-token", data.token);
-				    
-                    navigate('/')
-            }
-        }).catch((err)=>{
-			console.log(err);
-			setState("Error")
-		  })
+        }).then(()=>{
+		      setState("Success")
+		  }).then(()=> navigate("/"))
      }
 
 
