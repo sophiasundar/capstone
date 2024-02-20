@@ -14,12 +14,20 @@ const Signup=()=>{
      
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [validated, setValidated] = useState(false);
   const [state, setState] = useState("Login")
+  
+
   const navigate = useNavigate();
 
    
   const handleSubmit = async (e) =>{
-    //  setState("Submitting...")
+    const form = e.currentTarget;
+    setValidated(true);
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      return;
+    }
      e.preventDefault();
     
      try{
@@ -77,7 +85,7 @@ return(
         </Col>
 
     
-         <Form>
+         <Form noValidate validated={validated} onSubmit={(e)=>handleSubmit(e)} >
          <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
