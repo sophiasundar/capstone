@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import { toast } from "react-toastify";
+
 
 
 const SignupForm=()=>{
@@ -31,7 +31,6 @@ const SignupForm=()=>{
                       "Content-Type": "application/json",
                 }
                 });
-
                 if (response.ok) {
                   alert('Email Submitted!')
                   navigate("/");
@@ -74,7 +73,7 @@ return(
         <Form.Control type="password" name="password" placeholder="Enter Your Password" 
            onChange={(e) => setPassword(e.target.value)}
            value={password}
-           minLength='8'
+
         required/>
       </Form.Group>
       </Row>

@@ -1,22 +1,60 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import {API} from "../global.js";
+import {API} from "../global.js";
 import "./signUp.css"
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Figure from 'react-bootstrap/Figure';
-// import axios from "axios";
 
 
 
 const Signup=()=>{
+     
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [state, setState] = useState("Login")
+  const navigate = useNavigate();
+
+   
+  const handleSubmit = async (e) =>{
+    //  setState("Submitting...")
+     e.preventDefault();
     
+     try{
+           const data ={
+             email,
+             password,
+           }
+           const response = await fetch(`${API}/users/login`, {
+                 method: "POST",
+                 body: JSON.stringify(data),
+                 headers: {
+                   "Content-Type": "application/json",
+             }
+             })
+
+             if (response.ok) {
+              
+              const authToken = localStorage.getItem("x-Auth-token");
+              console.log("localStorage", authToken);
+               
+              alert('Successfully LoggedIn')
+               navigate("/display");
+           } else {
+               alert('Invalid Credentials')
+               navigate("/");
+            }}catch(err){
+             console.log("err");
+             setState("");
+           }
+         };
+
 
    
 
-     const navigate = useNavigate()
+     
 
    
 return(
@@ -43,14 +81,22 @@ return(
          <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter Your Email Address" />
+        <Form.Control type="email" placeholder="Enter Your Email Address" 
+           onChange={(e) => setEmail(e.target.value)}
+           value={email}
+         required 
+        />
       </Form.Group>
           </Row>
     
           <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Enter Your Password" />
+        <Form.Control type="password" placeholder="Enter Your Password" 
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
+     required
+        />
       </Form.Group>
       </Row>
 
@@ -58,11 +104,8 @@ return(
      <Row >
     
     <Button variant="primary"
-        onClick={()=>{
-          navigate(`/display`)
-       }
-   }
-    >LOG IN</Button>{' '}
+        onClick = {(e)=>handleSubmit(e)}
+    >{state}</Button>{' '}
     <h6>Already have an account? Just LogIn </h6>
     
     

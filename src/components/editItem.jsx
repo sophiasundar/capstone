@@ -67,7 +67,7 @@ export function EditItems(){
         headers:{ "Content-Type": "application/json" },
      })
      .then((data)=> data.json())
-     .then(()=> navigate("/"))
+     .then(()=> navigate("/display"))
   };
 
            return(
