@@ -8,6 +8,7 @@ import NotFound from './components/notFound';
 import Signup from './components/signUp/signUp.jsx';
 import SignupForm from './components/signUp/signupForm.jsx';
 
+
 function App() {
   const [itemData,setItemData] = useState([])
   
@@ -19,7 +20,7 @@ function App() {
     <div className="App">
       
       <BrowserRouter>
-      
+          
         <Routes>
           
              
@@ -33,6 +34,8 @@ function App() {
           
           
         </Routes>
+      
+      
       </BrowserRouter>
     </div>
     

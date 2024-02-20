@@ -5,47 +5,44 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+// import { toast } from "react-toastify";
 
 
 const SignupForm=()=>{
      const [email, setEmail] = useState("")
      const [password, setPassword] = useState("")
-    
-
      const [state, setState] = useState("Signup")
-
-     const navigate = useNavigate()
+     const navigate = useNavigate();
 
       
-        
-     const handleSubmit =  (e) =>{
-        setState("Loading....")
+     const handleSubmit = async (e) =>{
+        setState("Submitting...")
         e.preventDefault();
-        alert("Submited");
-        const data ={
-          email,
-          password,
-        }
-        fetch(`${API}/users/signup`, {
-			    method: "POST",
-			    body: JSON.stringify(data),
-			    headers: {
-			       "Content-Type": "application/json",
-			    }
-          
-		  }).then(async(response)=>{
-            console.log(response)
-            let data = await response.json()
-            console.log(data)
-           }).then((data)=>{
-         if(data === "already exist"){
-                alert("already exist")
-            }
-        }).then(()=>{
-		      setState("Success")
-		  }).then(()=> navigate("/"))
-     }
+       
+        try{
+              const data ={
+                email,
+                password,
+              }
+              const response = await fetch(`${API}/users/signup`, {
+                    method: "POST",
+                    body: JSON.stringify(data),
+                    headers: {
+                      "Content-Type": "application/json",
+                }
+                });
+
+                if (response.ok) {
+                  alert('Email Submitted!')
+                  navigate("/");
+              } else {
+                  alert('Email Already Exists!')
+                  navigate("/");
+              }}catch(error){
+                console.error('error:',error);
+                setState("");
+              }
+            };
 
 
 return(

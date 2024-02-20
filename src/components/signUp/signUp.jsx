@@ -41,14 +41,14 @@ return(
     
          <Form>
          <Row xs={2} md={4} lg={6}>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+      <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter Your Email Address" />
       </Form.Group>
           </Row>
     
           <Row xs={2} md={4} lg={6}>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+      <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Enter Your Password" />
       </Form.Group>
