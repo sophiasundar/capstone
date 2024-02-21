@@ -12,25 +12,26 @@ import Figure from 'react-bootstrap/Figure';
 
 const Signup=()=>{
      
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [validated, setValidated] = useState(false);
+  // const [email, setEmail] = useState("")
+  // const [password, setPassword] = useState("")
+  const [data, setData] = useState({email:"",password:""})
+  // const [validated, setValidated] = useState(false);
   const [state, setState] = useState("Login")
   const navigate = useNavigate();
 
-  // const handleChange = ({ currentTarget: input }) => {1
-	// 	setData({ ...data, [input.name]: input.value });
-	// };
+  const handleChange = ({ currentTarget: input }) => {
+		setData({ ...data, [input.name]: input.value });
+	};
    
   const handleSubmit = async (e) =>{
     
      e.preventDefault();
     
      try{
-           const data ={
-             email,
-             password,
-           }
+          //  const data ={
+          //    email,
+          //    password,
+          //  }
            const response = await fetch(`${API}/users/login`, {
                  method: "POST",
                  body: JSON.stringify(data),
@@ -82,7 +83,8 @@ return(
             <label>Email address</label>
             <input
             type="email" placeholder="Enter Your Email Address" name="email" 
-            onChange={(e) => setEmail(e.target.value)}
+            // onChange={(e) => setEmail(e.target.value)}
+            onChange={handleChange}
             value={data.email}
           required 
             ></input>
@@ -90,13 +92,13 @@ return(
            </div>
         </Col>
     
-         <Form noValidate validated={validated}  >
+         <Form noValidate validate  >
          <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter Your Email Address" 
-           onChange={(e) => setEmail(e.target.value)}
-           value={email}
+           onChange={handleChange}
+           value={data.email}
          required 
         />
       </Form.Group>
@@ -106,8 +108,9 @@ return(
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Enter Your Password" 
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
+        // onChange={(e) => setPassword(e.target.value)}
+        onChange={handleChange}
+        value={data.password}
      required
         />
       </Form.Group>
