@@ -9,25 +9,42 @@ import Col from 'react-bootstrap/Col';
 
 
 const SignupForm=()=>{
-    //  const [email, setEmail] = useState("")
-    //  const [password, setPassword] = useState("")
+    
     const [data, setData] = useState({email:"",password:""})
      const [state, setState] = useState("Signup")
+     const [validated, setValidated] = useState(false);
      const navigate = useNavigate();
 
      const handleChange = ({ currentTarget: input }) => {
       setData({ ...data, [input.name]: input.value });
     };
       
+
+
      const handleSubmit = async (e) =>{
         setState("Submitting...")
         e.preventDefault();
+
+        if(data.email===""){
+          setValidated("email is required and valid");
+          return;
+      }else if(data.password==="" || data.password.length < 4){
+          setValidated("password is required and more than 5 chr");
+          return;
+      }else{
+          setValidated("")
+      }
+        
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+    
+        setValidated(true);
        
         try{ 
-              //  const data={
-              //       email,
-              //       password
-              //  }
+             
               const response = await fetch(`${API}/users/signup`, {
                     method: "POST",
                     body: JSON.stringify(data),
@@ -53,20 +70,23 @@ return(
         <div className="container">
             <div className="form">
               <div className="signup">
+               
         <Col>
          
-         <Form >
+         <Form  onSubmit={handleSubmit}>
 
          <Row xs={2} md={4} lg={6}>
          <h3 style={{color:"black"}}>Create Account</h3>
           </Row>
-
+          <h6   className="valid" >{validated}</h6>
          <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicEmail" >
         <Form.Label>Email address</Form.Label>
+        
         <input type="email" name="email" placeholder="Enter Your Email Address" 
           onChange={handleChange}
           value={data.email}
+          
         required />
       </Form.Group>
           </Row>

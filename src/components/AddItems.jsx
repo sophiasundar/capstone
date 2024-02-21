@@ -53,7 +53,7 @@ function AddItems({setItemData}){
              <p></p>
           
 
-          <Form.Group className="mb-3" controlId="validationCustom01">
+          <Form.Group className="mb-3" validate controlId="validationCustom01">
            <Form.Label>Title</Form.Label>
            <Form.Control required={true} id="title"
             name="title" type="text" placeholder="Enter the Phone Name" 

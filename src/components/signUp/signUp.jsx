@@ -12,29 +12,51 @@ import Figure from 'react-bootstrap/Figure';
 
 const Signup=()=>{
      
-  // const [email, setEmail] = useState("")
-  // const [password, setPassword] = useState("")
-  const [datum, setDatum] = useState({email:"",password:""})
-  // const [validated, setValidated] = useState(false);
-  const [state, setState] = useState("Login")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  // const [data, setData] = useState({email:"",password:""})
+  const [state, setState] = useState("Signup")
+  const [validated, setValidated] = useState(false);
   const navigate = useNavigate();
 
-  const handleChange = ({ currentTarget: input }) => {
-		setDatum({ ...datum, [input.name]: input.value });
-	};
+//   const handleChange = ({ currentTarget: input }) => {
+//    setData({ ...data, [input.name]: input.value });
+//  };
    
+const data ={
+  email,
+  password,
+}
+
   const handleSubmit = async (e) =>{
-    
+     setState("Submitting...")
      e.preventDefault();
+
+     if(data.email===""){
+       setValidated("email is required and valid");
+       return;
+   }else if(data.password==="" || data.password.length < 4){
+       setValidated("password is required and more than 5 chr");
+       return;
+   }else{
+       setValidated("")
+   }
+     
+     const form = e.currentTarget;
+     if (form.checkValidity() === false) {
+       e.preventDefault();
+       e.stopPropagation();
+     }
+ 
+     setValidated(true);
     
      try{
-          //  const data ={
-          //    email,
-          //    password,
-          //  }
+
+          
+          
            const response = await fetch(`${API}/users/login`, {
                  method: "POST",
-                 body: JSON.stringify(datum),
+                 body: JSON.stringify(data),
                  headers: {
                    "Content-Type": "application/json",
              }
@@ -78,17 +100,18 @@ return(
       />
       
     </Figure>
-           
+          <h6 className="valid">{validated}</h6>
             
         </Col>
     
-         <Form noValidate validate  >
+         <Form onSubmit={handleSubmit}  >
          <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter Your Email Address" 
-           onChange={handleChange}
-           value={datum.email}
+        <input type="email" placeholder="Enter Your Email Address" 
+        onChange={(e) => setEmail(e.target.value)}
+          //  onChange={handleChange}
+           value={data.email}
          required 
         />
       </Form.Group>
@@ -97,10 +120,10 @@ return(
           <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Enter Your Password" 
-        // onChange={(e) => setPassword(e.target.value)}
-        onChange={handleChange}
-        value={datum.password}
+        <input type="password" placeholder="Enter Your Password" 
+        onChange={(e) => setPassword(e.target.value)}
+        // onChange={handleChange}
+        value={data.password}
      required
         />
       </Form.Group>

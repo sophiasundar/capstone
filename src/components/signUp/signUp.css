@@ -42,3 +42,15 @@
   align-items: center;
   margin-left: 50px;
 }
+
+.valid{
+	display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 50px;
+  text-decoration:underline;
+  text-decoration-color: brown;
+  text-shadow: 4ch;
+  text-overflow: clip;
+}
