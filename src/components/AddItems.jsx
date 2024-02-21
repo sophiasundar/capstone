@@ -7,6 +7,7 @@ import { API } from './global';
 
 
 function AddItems({setItemData}){
+  const [validated, setValidated] = useState(false);
    const [title,setTitle] = useState("")
    const [price,setPrice] = useState("")
    const [discountPercentage,setDiscountPercentage] = useState("")
@@ -18,7 +19,7 @@ function AddItems({setItemData}){
 
     const navigate = useNavigate()
 
-    const handleSubmit = () =>{
+    const handleSubmit = async (e) =>{
         const newPhone= {
             title: title,
             price:price,
@@ -30,6 +31,24 @@ function AddItems({setItemData}){
             description:description,
         }
         console.log(newPhone)
+
+        if(newPhone.title === ""){
+          setValidated(" Please fill out this form and required ");
+          return;
+      }else if( newPhone.price === "" ){
+          setValidated("  Please fill out this form and required ");
+          return;
+      }else{
+          setValidated("")
+      }
+        
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+    
+        setValidated(true);
 
        fetch(`${API}/phones`,{
           method: "POST",
@@ -50,12 +69,12 @@ function AddItems({setItemData}){
           <h5>AddPhones</h5> 
 
           <Form >
-             <p></p>
+          <h6 className="valid">{validated}</h6>
           
 
           <Form.Group className="mb-3" validate controlId="validationCustom01">
            <Form.Label>Title</Form.Label>
-           <Form.Control required={true} id="title"
+           <input required={true} id="title"
             name="title" type="text" placeholder="Enter the Phone Name" 
             onChange={(e)=> setTitle(e.target.value)}
             value={title}
@@ -64,7 +83,7 @@ function AddItems({setItemData}){
 
           <Form.Group className="mb-3" controlId="validationCustom01">
            <Form.Label>Price</Form.Label>
-           <Form.Control required={2} id="price"
+           <input required id="price"
             name="price" type="text" placeholder="Enter the Price" 
             onChange={(e)=> setPrice(e.target.value)}
             value={price}
@@ -73,7 +92,7 @@ function AddItems({setItemData}){
 
           <Form.Group className="mb-3" controlId="validationCustom01">
            <Form.Label>Discount Percentage</Form.Label>
-           <Form.Control required id="discountPercentage"
+           <input required id="discountPercentage"
             name="discountPercentage" type="text" placeholder="Enter the Discount Percentage" 
             onChange={(e)=> setDiscountPercentage(e.target.value)}
             value={discountPercentage}
@@ -82,7 +101,7 @@ function AddItems({setItemData}){
 
           <Form.Group className="mb-3" controlId="validationCustom01">
            <Form.Label>Sales Percentage</Form.Label>
-           <Form.Control required id="salesPercentage"
+           <input required id="salesPercentage"
             name="salesPercentage" type="text" placeholder="Enter the Sales Percentage" 
             onChange={(e)=> setSalesPercentage(e.target.value)}
             value={salesPercentage}
@@ -91,7 +110,7 @@ function AddItems({setItemData}){
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
            <Form.Label>Rating</Form.Label>
-           <Form.Control required id="rating"
+           <input required id="rating"
             name="rating" type="text" placeholder="Enter the Rating" 
             onChange={(e)=> setRating(e.target.value)}
             value={rating}
@@ -100,7 +119,7 @@ function AddItems({setItemData}){
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
            <Form.Label>Brand</Form.Label>
-           <Form.Control required id="brand"
+           <input required id="brand"
             name="brand" type="text" placeholder="Enter the brand" 
             onChange={(e)=> setBrand(e.target.value)}
             value={brand}
@@ -109,7 +128,7 @@ function AddItems({setItemData}){
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
            <Form.Label>Image</Form.Label>
-           <Form.Control required id="image"
+           <input required id="image"
             name="image" type="text" placeholder="Enter The Image Link in jpg format" 
             onChange={(e)=> setImages(e.target.value)}
             value={images}
@@ -118,7 +137,7 @@ function AddItems({setItemData}){
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
            <Form.Label>Description</Form.Label>
-           <Form.Control required id="description"
+           <input required id="description"
             name="description" type="text" placeholder="Enter The Description" 
             onChange={(e)=> setDescription(e.target.value)}
             value={description}

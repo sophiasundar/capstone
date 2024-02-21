@@ -25,10 +25,10 @@ const SignupForm=()=>{
         setState("Submitting...")
         e.preventDefault();
 
-        if(data.email===""){
+        if(data.email === ""){
           setValidated("email is required and valid");
           return;
-      }else if(data.password==="" || data.password.length < 4){
+      }else if(data.password === "" || data.password.length < 4){
           setValidated("password is required and more than 5 chr");
           return;
       }else{
