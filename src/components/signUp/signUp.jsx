@@ -14,13 +14,13 @@ const Signup=()=>{
      
   // const [email, setEmail] = useState("")
   // const [password, setPassword] = useState("")
-  const [data, setData] = useState({email:"",password:""})
+  const [datum, setDatum] = useState({email:"",password:""})
   // const [validated, setValidated] = useState(false);
   const [state, setState] = useState("Login")
   const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
-		setData({ ...data, [input.name]: input.value });
+		setDatum({ ...datum, [input.name]: input.value });
 	};
    
   const handleSubmit = async (e) =>{
@@ -34,7 +34,7 @@ const Signup=()=>{
           //  }
            const response = await fetch(`${API}/users/login`, {
                  method: "POST",
-                 body: JSON.stringify(data),
+                 body: JSON.stringify(datum),
                  headers: {
                    "Content-Type": "application/json",
              }
@@ -78,18 +78,8 @@ return(
       />
       
     </Figure>
-           <div>
-            <form>
-            <label>Email address</label>
-            <input
-            type="email" placeholder="Enter Your Email Address" name="email" 
-            // onChange={(e) => setEmail(e.target.value)}
-            onChange={handleChange}
-            value={data.email}
-          required 
-            ></input>
-            </form>
-           </div>
+           
+            
         </Col>
     
          <Form noValidate validate  >
@@ -98,7 +88,7 @@ return(
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter Your Email Address" 
            onChange={handleChange}
-           value={data.email}
+           value={datum.email}
          required 
         />
       </Form.Group>
@@ -110,7 +100,7 @@ return(
         <Form.Control type="password" placeholder="Enter Your Password" 
         // onChange={(e) => setPassword(e.target.value)}
         onChange={handleChange}
-        value={data.password}
+        value={datum.password}
      required
         />
       </Form.Group>
