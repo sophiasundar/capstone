@@ -16,18 +16,14 @@ const Signup=()=>{
   const [password, setPassword] = useState("")
   const [validated, setValidated] = useState(false);
   const [state, setState] = useState("Login")
-  
-
   const navigate = useNavigate();
 
+  // const handleChange = ({ currentTarget: input }) => {1
+	// 	setData({ ...data, [input.name]: input.value });
+	// };
    
   const handleSubmit = async (e) =>{
-    const form = e.currentTarget;
-    setValidated(true);
-    if (form.checkValidity() === false) {
-      e.preventDefault();
-      return;
-    }
+    
      e.preventDefault();
     
      try{
@@ -81,11 +77,20 @@ return(
       />
       
     </Figure>
-
+           <div>
+            <form>
+            <label>Email address</label>
+            <input
+            type="email" placeholder="Enter Your Email Address" name="email" 
+            onChange={(e) => setEmail(e.target.value)}
+            value={data.email}
+          required 
+            ></input>
+            </form>
+           </div>
         </Col>
-
     
-         <Form noValidate validated={validated} onSubmit={(e)=>handleSubmit(e)} >
+         <Form noValidate validated={validated}  >
          <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -111,7 +116,7 @@ return(
     </Form>
      <Row >
     
-    <Button variant="primary"
+    <Button variant="primary" type="submit"
         onClick = {(e)=>handleSubmit(e)}
     >{state}</Button>{' '}
     <h6>Already have an account? Just LogIn </h6>

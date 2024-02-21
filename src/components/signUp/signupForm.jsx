@@ -9,21 +9,25 @@ import Col from 'react-bootstrap/Col';
 
 
 const SignupForm=()=>{
-     const [email, setEmail] = useState("")
-     const [password, setPassword] = useState("")
+    //  const [email, setEmail] = useState("")
+    //  const [password, setPassword] = useState("")
+    const [data, setData] = useState({email:"",password:""})
      const [state, setState] = useState("Signup")
      const navigate = useNavigate();
 
+     const handleChange = ({ currentTarget: input }) => {
+      setData({ ...data, [input.name]: input.value });
+    };
       
      const handleSubmit = async (e) =>{
         setState("Submitting...")
         e.preventDefault();
        
-        try{
-              const data ={
-                email,
-                password,
-              }
+        try{ 
+              //  const data={
+              //       email,
+              //       password
+              //  }
               const response = await fetch(`${API}/users/signup`, {
                     method: "POST",
                     body: JSON.stringify(data),
@@ -51,7 +55,7 @@ return(
               <div className="signup">
         <Col>
          
-         <Form onSubmit={(e)=>handleSubmit(e)}>
+         <Form >
 
          <Row xs={2} md={4} lg={6}>
          <h3 style={{color:"black"}}>Create Account</h3>
@@ -60,9 +64,9 @@ return(
          <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicEmail" >
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" name="email" placeholder="Enter Your Email Address" 
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
+        <input type="email" name="email" placeholder="Enter Your Email Address" 
+          onChange={handleChange}
+          value={data.email}
         required />
       </Form.Group>
           </Row>
@@ -70,9 +74,9 @@ return(
           <Row xs={2} md={4} lg={6}>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" name="password" placeholder="Enter Your Password" 
-           onChange={(e) => setPassword(e.target.value)}
-           value={password}
+        <input type="password" name="password" placeholder="Enter Your Password" 
+           onChange={handleChange}
+           value={data.password}
 
         required/>
       </Form.Group>
@@ -82,7 +86,7 @@ return(
      <Row >
 
     <Button variant="primary" type="submit"
-         onClick = {(e)=>handleSubmit(e)}
+         onClick = {handleSubmit}
      
     >{state}</Button>{' '}
 
