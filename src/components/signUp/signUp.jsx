@@ -15,7 +15,7 @@ const Signup=()=>{
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   // const [data, setData] = useState({email:"",password:""})
-  const [state, setState] = useState("Signup")
+  const [state, setState] = useState("Login")
   const [validated, setValidated] = useState(false);
   const navigate = useNavigate();
 
