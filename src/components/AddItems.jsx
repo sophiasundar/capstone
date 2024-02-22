@@ -33,12 +33,36 @@ function AddItems({setItemData}){
         console.log(newPhone)
 
         if(newPhone.title === ""){
-          setValidated(" Please fill out this form and required ");
+          setValidated("Title is required ");
           return;
       }else if( newPhone.price === "" ){
-          setValidated("  Please fill out this form and required ");
+          setValidated("Price is required ");
           return;
-      }else{
+      }else if( newPhone.discountPercentage === "" ){
+        setValidated("Discount Percentage is required ");
+        return;
+      }
+      else if( newPhone.salesPercentage === "" ){
+        setValidated("Sales Percentage is required ");
+        return;
+      }
+      else if( newPhone.rating === "" ){
+        setValidated("Rating is required ");
+        return;
+      }
+      else if( newPhone.brand === "" ){
+        setValidated("Brand is required ");
+        return;
+      }
+      else if( newPhone.images === "" ){
+        setValidated("Image is required ");
+        return;
+      }
+      else if( newPhone.description === "" ){
+        setValidated("Description is required ");
+        return;
+      }
+      else{
           setValidated("")
       }
         
